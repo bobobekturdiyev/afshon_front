@@ -15,10 +15,10 @@ const routes = [
     component: BusinessCard,
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/3d',
+    name: '3dComponent',
 
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ArWith3D.vue')
   },
   {
     path: '/orbit',

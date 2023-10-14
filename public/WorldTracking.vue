@@ -5,6 +5,7 @@ import * as THREE from "three";
 
 import { ARButton } from "three/addons/webxr/ARButton";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 document.addEventListener("DOMContentLoaded", () => {
   const initialize = async () => {
@@ -45,8 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
       // model.scale.y = Math.random() * 2 + 1;
       model.scale.set(0.006, 0.006, 0.006);
       scene.add(model);
-
     });
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0, 0); // Set the target of the controls
+    controls.enableDamping = true; // Enable damping for smoother movement
+    controls.dampingFactor = 0.05; // Adjust the damping factor
+
+    const animate = () => {
+      renderer.setAnimationLoop(animate);
+
+      // Update the controls
+      controls.update();
+
+      // Render your scene
+      renderer.render(scene, camera);
+    };
+    animate();
 
     // controller.addEventListener("select", async () => {
     //   const loader = new GLTFLoader();
