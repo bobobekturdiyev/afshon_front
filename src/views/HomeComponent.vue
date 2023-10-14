@@ -19,19 +19,44 @@
             type="text"
             class="search-input"
             placeholder="Search here..."
+            v-model="search"
+            @keyup="searchCategory"
           />
         </div>
+        <div class="search-section-btn">
+          <img src="../assets/icons/qr.png" alt="">
+        </div>
       </div>
-      <ProductCategories />
+      
+        <NotFound v-if="notFound" />
+        <SearchList v-else-if="search.length >= 1" />
+      <ProductCategories v-else />
     </div>
   </div>
 </template>
 
 <script>
 import ProductCategories from "@/components/ProductCategories.vue";
+import NotFound from '@/components/NotFound.vue';
+import SearchList from '@/components/SearchList.vue';
 export default {
-  components: { ProductCategories },
+  components: { ProductCategories, NotFound, SearchList },
   name: "Home",
+  data() {
+    return {
+      search: '',
+      notFound :  false,
+    }
+  },
+  methods: {
+    searchCategory() {
+      if (this.search.length >= 4) {
+          this.notFound =  true
+      } else {
+          this.notFound  =  false
+        }
+    } 
+  },
 };
 </script>
 
