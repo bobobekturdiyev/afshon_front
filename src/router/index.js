@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
+import HomeComponent from "@/views/HomeComponent.vue";
 import WorldTracking from "../../public/WorldTracking.vue";
 import BusinessCard from "../views/BusinessCard.vue";
 
@@ -7,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: WorldTracking,
+    component: HomeComponent,
   },
   {
     path: "/video",
