@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding-top: 200px;
 }
 
 .search-section-mail {
@@ -120,7 +120,7 @@ input::placeholder {
   transition: all 0.2s linear;
 }
 .categories-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-bg);
 }
 
 .categories-item-title {

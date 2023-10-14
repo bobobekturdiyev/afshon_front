@@ -25,6 +25,11 @@ const routes = [
     path: '/orbit',
     name: 'orbit',
     component: () => import('../views/OrbitControl.vue')
+  },
+  {
+    path: '/model/:id',
+    name: 'modelById',
+    component: () => import('../views/product/ProductItem.vue')
   }
 ]
 
