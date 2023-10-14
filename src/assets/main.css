@@ -118,6 +118,7 @@ input::placeholder {
   flex-shrink: 0;
   cursor: pointer;
   transition: all 0.2s linear;
+  text-decoration: none;
 }
 .categories-item:hover {
   background: var(--border-bg);
