@@ -1,19 +1,35 @@
 <template>
-        <div class="model-view"> 
-            <model-viewer
+  <div class="model-view">
+    {{ item }}
+    <model-viewer
       src="/sofa.glb"
       alt="A 3D Sofa Model"
       camera-controls
       autoplay
       class="viewer"
     ></model-viewer>
-        </div>
+  </div>
 </template>
 
 <script>
+import ApiRequest from '@/helpers/request'
 export default {
-
-}
+  data() {
+    return {
+      item: {},
+    };
+  },
+  methods: {
+    getSubject() {
+      ApiRequest.get("subject/" + this.$route.params.id).then((res) => {
+        this.item = res.data.data;
+      });
+    },
+  },
+  mounted() {
+    this.getSubject();
+  },
+};
 </script>
 
 <style>
