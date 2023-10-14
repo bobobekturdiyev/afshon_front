@@ -1,20 +1,22 @@
 <template>
   <div class="categories-parent">
+   
     <router-link
-      :to="'/model/' + index"
+      :to="'/model/' + item.id"
       class="categories-item"
-      v-for="(item, index) in categories"
+      v-for="(item, index) in data"
       :key="index"
     >
       <div class="categories-item-img">
-        <img :src="item.image" :alt="item.name" />
+        <img :src="item.image" :alt="item.title" />
       </div>
-      <p class="categories-item-title">{{ item.name }}</p>
+      <p class="categories-item-title">{{ item.title }}</p>
     </router-link>
   </div>
 </template>
 
 <script>
+import ApiRequest from '@/helpers/request'
 export default {
   data() {
     return {
@@ -32,7 +34,19 @@ export default {
           image: "/assets/icons/heart.svg",
         },
       ],
+      data:[]
     };
+    },
+    methods: {
+        getData() {
+            ApiRequest.get('subject').then((res) => {
+               
+                this.data = res.data.data
+            })
+    }
+    },
+    mounted() {
+    this.getData()
   },
 };
 </script>
