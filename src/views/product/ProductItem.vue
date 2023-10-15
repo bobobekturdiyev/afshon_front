@@ -1,6 +1,6 @@
 <template>
   <div class="model-view">
-    {{ item }}
+    {{ item.title }}
     <model-viewer
       src="/sofa.glb"
       alt="A 3D Sofa Model"

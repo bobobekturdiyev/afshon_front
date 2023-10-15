@@ -108,6 +108,10 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
+.categories-item-img img {
+  height: 28px;
+  width: 28px;
+}
 
 .categories-item {
   border-radius: 16px;
