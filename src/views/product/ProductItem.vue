@@ -49,7 +49,7 @@ export default {
       this.item.forEach((item) => {
         const url = this.getFilenameFromURL(item.url);
         ApiRequest.get("file/" + url).then((res) => {
-          console.log(res);
+          // console.log(res);
           // this.modelUrl = res.data;
         });
       });
