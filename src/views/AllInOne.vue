@@ -4,46 +4,37 @@
       <div class="one-parent">
         <img class="home-logo" src="../assets/images/afshon.png" alt="" />
 
-        <div class="home-links">
+        <a
+          href="https://github.com/bobobekturdiyev/afshon_mobile"
+          target="_blank"
+          class="home-links"
+        >
           <div class="link-image">
             <img class="social-logo" src="../assets/images/gitsvg.svg" alt="" />
           </div>
-          <div class="link-title">
-            <a
-              href="https://github.com/bobobekturdiyev/afshon_mobile"
-              target="_blank"
-            >
-              Repository for mobile
-            </a>
-          </div>
-        </div>
+          <div class="link-title">Repository for mobile</div>
+        </a>
 
-        <div class="home-links">
+        <a
+          href="https://github.com/bobobekturdiyev/afshon_back_end"
+          target="_blank"
+          class="home-links"
+        >
           <div class="link-image">
             <img class="social-logo" src="../assets/images/gitsvg.svg" alt="" />
           </div>
-          <div class="link-title">
-            <a
-              href="https://github.com/bobobekturdiyev/afshon_back_end"
-              target="_blank"
-            >
-              Repository for backend
-            </a>
-          </div>
-        </div>
-        <div class="home-links">
+          <div class="link-title">Repository for backend</div>
+        </a>
+        <a
+          href="https://github.com/bobobekturdiyev/afshon_front/tree/dev"
+          target="_blank"
+          class="home-links"
+        >
           <div class="link-image">
             <img class="social-logo" src="../assets/images/gitsvg.svg" alt="" />
           </div>
-          <div class="link-title">
-            <a
-              href="https://github.com/bobobekturdiyev/afshon_front/tree/dev"
-              target="_blank"
-            >
-              Repository for frontend
-            </a>
-          </div>
-        </div>
+          <div class="link-title">Repository for frontend</div>
+        </a>
 
         <div class="bottom-link">
           <router-link to="/contact" class="go-contact"> CONTACT</router-link>
@@ -96,7 +87,7 @@ export default {};
   background: var(--border-bg);
 }
 
-.link-title a {
+.link-title {
   color: var(--white);
   font-family: Outfit, sans-serif;
   font-size: 20px;

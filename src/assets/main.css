@@ -9,7 +9,7 @@
   --white: #fff;
   --icon-bg: #262839;
   --border-bg: rgba(255, 255, 255, 0.1);
-  --grey: #7C7C7C
+  --grey: #7c7c7c;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 200px;
+  padding-top: 136px;
 }
 
 .search-section-mail {
