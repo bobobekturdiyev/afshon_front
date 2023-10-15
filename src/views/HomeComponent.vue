@@ -30,9 +30,9 @@
 
       <ProductCategories v-if="!search" />
    
-      <SearchList v-if="search && data.length >= 1" />
+      <SearchList v-if="search && data && data.length >= 1" />
       <div v-if="isLoading" class="categories-item-title">Loading...</div>
-      <NotFound v-if="search && data.length === 0 && !isLoading" />
+      <NotFound v-if="search && data &&  data.length === 0 && !isLoading" />
      
     </div>
   </div>

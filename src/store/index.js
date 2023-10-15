@@ -33,10 +33,10 @@ export default createStore({
   actions: {
     searchData(context, payload) {
       context.commit('setLoad' , true)
-      ApiRequest.get("search/" + payload)
+      ApiRequest.post("search/" + payload)
         .then((res) => {
-          
-          context.commit("setSearch", res.data.data);
+        
+          context.commit("setSearch", res.data);
           context.commit('setLoad' , false)
         })
         .catch((error) => {

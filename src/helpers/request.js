@@ -32,6 +32,21 @@ class ApiRequest {
         });
     });
   }
+  post(url) {
+    let headers = this.getHeader();
+    url = this.endPoint + this.filterUrl(url);
+
+    return new Promise(function (resolve, reject) {
+      axios
+        .post(url, { headers: headers })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((e) => {
+          reject(e);
+        });
+    });
+  }
 }
 
 export default new ApiRequest();
