@@ -1,6 +1,6 @@
 <template>
   <div class="model-view" v-for="(element, index) in item" :key="index">
-    <div>
+ {{ getFilenameFromURL(element.url) }}
       <model-viewer
         :src="modelUrl"
         :alt="element.name"
@@ -8,7 +8,7 @@
         autoplay
         class="viewer"
       ></model-viewer>
-    </div>
+  
 
     <!-- <div class="viewer" :id="'container_' + index" ref="viewerContainer"></div> -->
   </div>
@@ -50,8 +50,8 @@ export default {
       this.item.forEach((item) => {
         const url = this.getFilenameFromURL(item.url);
         ApiRequest.get("file/" + url).then((res) => {
-          console.log(res.data);
-          this.modelUrl = res.data;
+          // console.log(res);
+          // this.modelUrl = res.data;
         });
       });
     },
