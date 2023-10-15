@@ -5,6 +5,7 @@ import WorldTracking from "../../public/WorldTracking.vue";
 import BusinessCard from "../views/BusinessCard.vue";
 import AllInOne from "@/views/AllInOne.vue";
 import ContactPage from "@/views/ContactPage.vue";
+import AppPage from "@/views/AppPage.vue";
 const routes = [
   {
     path: "/",
@@ -15,6 +16,11 @@ const routes = [
     path: "/video",
     name: "video",
     component: BusinessCard,
+  },
+  {
+    path: "/app",
+    name: "app",
+    component: AppPage,
   },
   {
     path: "/contact",
