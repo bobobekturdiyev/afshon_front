@@ -1,6 +1,6 @@
 <template>
   <div class="model-view" v-for="(element, index) in item" :key="index">
- {{ getFilenameFromURL(element.url) }}
+
       <model-viewer
         :src="modelUrl"
         :alt="element.name"
