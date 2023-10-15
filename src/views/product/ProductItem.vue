@@ -1,14 +1,13 @@
 <template>
   <div class="model-view" v-for="(element, index) in item" :key="index">
-
-      <model-viewer
+    <!-- <model-viewer
         :src="modelUrl"
         :alt="element.name"
         camera-controls
         autoplay
         class="viewer"
       ></model-viewer>
-  
+   -->
 
     <!-- <div class="viewer" :id="'container_' + index" ref="viewerContainer"></div> -->
   </div>
@@ -23,7 +22,7 @@ export default {
   data() {
     return {
       item: [],
-      modelUrl: '/bola.glb',
+      modelUrl: "/bola.glb",
     };
   },
   methods: {
@@ -50,7 +49,7 @@ export default {
       this.item.forEach((item) => {
         const url = this.getFilenameFromURL(item.url);
         ApiRequest.get("file/" + url).then((res) => {
-          // console.log(res);
+          console.log(res);
           // this.modelUrl = res.data;
         });
       });
@@ -91,7 +90,6 @@ export default {
       const startIndex = url.lastIndexOf("/") + 1;
       return url.substring(startIndex);
     },
-  
   },
   mounted() {
     this.getSubject();
