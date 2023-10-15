@@ -24,45 +24,59 @@
           />
         </div>
         <div class="search-section-btn">
-          <img src="../assets/icons/qr.png" alt="">
+          <img src="../assets/icons/qr.png" alt="" />
         </div>
       </div>
-      
-      <ProductCategories v-if="!search" />
-<SearchList v-if="search && data.length >= 1" />
 
-<NotFound v-if="search && data.length === 0" />
+      <ProductCategories v-if="!search" />
+   
+      <SearchList v-if="search && data.length >= 1" />
+      <div v-if="isLoading" class="categories-item-title">Loading...</div>
+      <NotFound v-if="search && data.length === 0 && !isLoading" />
+     
     </div>
   </div>
 </template>
 
+
 <script>
 import ProductCategories from "@/components/ProductCategories.vue";
-import NotFound from '@/components/NotFound.vue';
-import SearchList from '@/components/SearchList.vue';
+import NotFound from "@/components/NotFound.vue";
+import SearchList from "@/components/SearchList.vue";
 export default {
   components: { ProductCategories, NotFound, SearchList },
   name: "Home",
   data() {
     return {
-      search: '',
-      notFound :  false,
-    }
+      search: "",
+
+      notFound: false,
+    };
   },
   computed: {
     isFound() {
-      return this.$store.getters['isFound']
+      return this.$store.getters["isFound"];
     },
     data() {
-      return this.$store.getters['getSearch']
+      return this.$store.getters["getSearch"];
+    },
+    isLoading() {
+      return this.$store.getters["isLoad"];
     },
   },
   methods: {
-    searchCategory() {
-      if (this.search.trim && this.search.length > 0) {
-        this.$store.dispatch('searchData' , this.search)
+    async searchCategory() {
+      if (this.search.trim() && this.search.length > 0) {
+        try {
+          await this.$store.dispatch("searchData", this.search);
+          this.$store.getters["getSearch"].length === 0
+            ? this.$store.commit("setNotFound", true)
+            : this.$store.commit("setNotFound", false);
+        } catch (error) {
+        } finally {
+        }
       }
-  },
+    },
   },
 };
 </script>

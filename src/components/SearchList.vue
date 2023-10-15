@@ -3,7 +3,7 @@
     <router-link
     class="search-item"
     v-for="(item) in data"
-    :to="'/model/' + item.id"
+    :to="'/subject/' + item.id"
       :key="item.id"
     >
       <div class="search-item-img">

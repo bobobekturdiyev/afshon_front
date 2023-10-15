@@ -2,7 +2,7 @@
   <div class="categories-parent">
    
     <router-link
-      :to="'/model/' + item.id"
+      :to="'/subject/' + item.id"
       class="categories-item"
       v-for="(item, index) in data"
       :key="index"

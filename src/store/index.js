@@ -4,33 +4,45 @@ import ApiRequest from "@/helpers/request";
 export default createStore({
   state: {
     searchData: [],
-    notFound:  false
+    notFound: false,
+    isLoad:false
   },
   getters: {
     getSearch(state) {
-      return state.searchData
+      return state.searchData;
     },
     isFound(state) {
-      return state.notFound
-    }
-  
+      return state.notFound;
+    },
+    isLoad(state) {
+      return state.isLoad;
+    },
   },
   mutations: {
     setSearch(state, payload) {
       state.searchData = payload;
     },
+    setNotFound(state, payload) {
+      state.notFound = payload;
+    },
+    setLoad(state, payload) {
+      state.isLoad = payload;
+    },
+    
   },
   actions: {
     searchData(context, payload) {
-      ApiRequest.get("search/" + payload).then((res) => {
-       
-        context.commit("setSearch", res.data.data);
-         if (res.data.data.length === 0) {
-          context.state.notFound = true
-        } else {
-          context.state.notFound = false
-        }
-      });
+      context.commit('setLoad' , true)
+      ApiRequest.get("search/" + payload)
+        .then((res) => {
+          
+          context.commit("setSearch", res.data.data);
+          context.commit('setLoad' , false)
+        })
+        .catch((error) => {
+          console.log(error);
+          context.commit('setLoad' , false)
+        });
     },
   },
   modules: {},

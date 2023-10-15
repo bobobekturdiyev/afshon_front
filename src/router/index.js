@@ -27,7 +27,7 @@ const routes = [
     component: () => import('../views/OrbitControl.vue')
   },
   {
-    path: '/model/:id',
+    path: '/subject/:id',
     name: 'modelById',
     component: () => import('../views/product/ProductItem.vue')
   }
