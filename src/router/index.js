@@ -3,12 +3,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from "@/views/HomeComponent.vue";
 import WorldTracking from "../../public/WorldTracking.vue";
 import BusinessCard from "../views/BusinessCard.vue";
-
+import AllInOne from "@/views/AllInOne.vue"
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeComponent,
+    component: AllInOne,
   },
   {
     path: "/video",
