@@ -46,7 +46,7 @@
         </div>
 
         <div class="bottom-link">
-            <router-link to="/contact"></router-link>
+          <router-link to="/contact" class="go-contact"> CONTACT</router-link>
         </div>
       </div>
     </div>
@@ -106,5 +106,18 @@ export default {};
   text-decoration: none;
 
   margin-left: 30px;
+}
+
+.bottom-link {
+  margin-top: 30px;
+}
+.bottom-link a {
+  color: var(--white);
+  font-family: Outfit, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
 </style>
