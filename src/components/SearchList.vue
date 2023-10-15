@@ -1,17 +1,17 @@
 <template>
   <div class="search-parent">
     <router-link
-      :to="'/model/' + index"
-      class="search-item"
-      v-for="(item, index) in categories"
-      :key="index"
+    class="search-item"
+    v-for="(item) in data"
+    :to="'/model/' + item.id"
+      :key="item.id"
     >
       <div class="search-item-img">
         <img :src="item.image" :alt="item.name" />
       </div>
       <div class="search-texts">
         <p class="search-item-title">{{ item.name }}</p>
-        <p class="search-item-description">{{ item.description }}</p>
+        <p class="search-item-description">{{ item.excerpt }}</p>
       </div>
     </router-link>
   </div>
@@ -55,10 +55,18 @@ export default {
       ],
     };
   },
+  computed: {
+    data() {
+      return this.$store.getters['getSearch']
+    }
+  }
 };
 </script>
 
 <style>
+.search-parent {
+  max-width: 312px;
+}
 .search-item {
   display: flex;
   padding: 12px 16px;
@@ -91,5 +99,9 @@ export default {
   font-weight: 400;
   text-decoration: none;
   line-height: normal;
+}
+.search-item-img img {
+  height: 40px;
+  width: 40px;
 }
 </style>

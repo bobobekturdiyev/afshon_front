@@ -28,9 +28,10 @@
         </div>
       </div>
       
-        <NotFound v-if="notFound" />
-        <SearchList v-else-if="search.length >= 1" />
-      <ProductCategories v-else />
+      <ProductCategories v-if="!search" />
+<SearchList v-if="search && data.length >= 1" />
+
+<NotFound v-if="search && data.length === 0" />
     </div>
   </div>
 </template>
@@ -48,14 +49,20 @@ export default {
       notFound :  false,
     }
   },
+  computed: {
+    isFound() {
+      return this.$store.getters['isFound']
+    },
+    data() {
+      return this.$store.getters['getSearch']
+    },
+  },
   methods: {
     searchCategory() {
-      if (this.search.length >= 4) {
-          this.notFound =  true
-      } else {
-          this.notFound  =  false
-        }
-    } 
+      if (this.search.trim && this.search.length > 0) {
+        this.$store.dispatch('searchData' , this.search)
+      }
+  },
   },
 };
 </script>
